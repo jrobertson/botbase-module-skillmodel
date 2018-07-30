@@ -5,8 +5,8 @@
 # A Botbase module to interact with an HTTP service 
 # using the Alexa Skill protocol
 
+require 'askio'
 require 'alexa_modelbuilder'
-require 'alexa_skillsimulator'
 
 
 class BotBaseModuleSkillModel
@@ -15,13 +15,13 @@ class BotBaseModuleSkillModel
     
     @invocation = invocation
     amb = AlexaModelBuilder.new(File.read file)
-    @skillbot = AlexaSkillSimulator.new(amb.to_manifest, amb.to_model, 
-      userid: userid)
+    @skillbot = AskIO.new(amb.to_manifest, amb.to_model, 
+                                        userid: userid)
     
   end
 
   def query(sender='user01', msg, mode: :voicechat, echo_node: 'node1')    
-    @skillbot.ask 'ask ' + @invocation + ' ' + msg
+    @skillbot.ask msg
   end
 
 end
