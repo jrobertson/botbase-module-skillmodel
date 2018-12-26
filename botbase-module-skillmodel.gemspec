@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'botbase-module-skillmodel'
-  s.version = '0.2.0'
+  s.version = '0.2.1'
   s.summary = 'A Botbase module to interact with an HTTP service using ' + 
       'the Alexa Skill protocol.'
   s.authors = ['James Robertson']

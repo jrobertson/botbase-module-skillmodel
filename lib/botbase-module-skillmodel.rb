@@ -10,13 +10,13 @@ require 'alexa_modelbuilder'
 
 
 class BotBaseModuleSkillModel
+  include RXFHelperModule
   
   def initialize(file: nil, invocation: nil, userid: nil, callback: nil)    
     
     @invocation = invocation
-    amb = AlexaModelBuilder.new(File.read file)
-    @skillbot = AskIO.new(amb.to_manifest, amb.to_model, 
-                                        userid: userid)
+    amb = AlexaModelBuilder.new(FileX.read file)
+    @skillbot = AskIO.new(amb.to_manifest, amb.to_model, userid: userid)
     
   end
 
